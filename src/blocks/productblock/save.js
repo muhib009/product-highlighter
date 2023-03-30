@@ -5,6 +5,7 @@ export default function save({ attributes }) {
 	const {
 		ratingScore,
 		ratingOn,
+		counterText,
 		phLogo,
 		bonusText,
 		highlightText,
@@ -23,6 +24,7 @@ export default function save({ attributes }) {
 		<div {...useBlockProps.save()}>
 			<div className="ph_container">
 				<div className="ph_logo_section">
+					<div className="counter">{counterText}</div>
 					{phLogo && (
 						<img
 							src={phLogo.url}

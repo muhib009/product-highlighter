@@ -113,6 +113,7 @@ export default function Edit({ attributes, setAttributes }) {
 			<div {...useBlockProps()}>
 				<div className="ph_container">
 					<div className="ph_logo_section">
+						<div className="counter">{counterText}</div>
 						{phLogo ? (
 							<img
 								src={phLogo.url}

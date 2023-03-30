@@ -45,7 +45,7 @@
 				font-size: 11px;
 				font-weight: 700;
 				text-align: center;
-				content: "1";
+				content: "";
 			}
 		}
 
@@ -294,7 +294,7 @@
 				font-size: 11px;
 				font-weight: 700;
 				text-align: center;
-				content: "1";
+				content: "";
 			}
 		}
 
@@ -518,16 +518,11 @@
 			position: relative;
 			&::before {
 				background: rgba(72, 118, 181, 0.2);
-				color: rgb(72, 118, 181);
+				color: #4876b5;
+				content: "";
+				width: 15px;
+				height: 91px;
 				position: absolute;
-				min-width: 15px;
-				line-height: 87px;
-				top: 4px;
-				left: 0;
-				font-size: 11px;
-				font-weight: 700;
-				text-align: center;
-				content: "1";
 			}
 		}
 
@@ -540,6 +535,13 @@
 			height: 87px;
 			& img {
 				margin: 0 auto;
+			}
+			.counter {
+				position: absolute;
+				top: 45px;
+				left: 3px;
+				font-size: 13px;
+				font-weight: bold;
 			}
 		}
 

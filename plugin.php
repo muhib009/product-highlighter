@@ -82,7 +82,7 @@ final class PH_BLOCKS_CLASS {
 	*/
 	public function ph_blocks_init() {
 		// register single block
-		$this->ph_register_block( 'productblock' );
+		$this->ph_register_block( 'productblock');
 	}
 
 	/**
