@@ -1,0 +1,27 @@
+{
+	"apiVersion": 2,
+	"name": "ph/product-block",
+	"version": "0.1.0",
+	"title": "Product Block",
+	"category": "ph",
+	"icon": "welcome-view-site",
+	"description": "A simple product highlighter block for WordPress Editor.",
+	"supports": {
+		"html": false,
+		"anchor": true
+	},
+	"attributes": {
+		"content": {
+			"type": "string",
+			"default": "Hello World!"
+		},
+		"color": {
+			"type": "string",
+			"default": "#00ff00"
+		}
+	},
+	"textdomain": "product-block",
+	"editorScript": "file:./index.js",
+	"editorStyle": "file:./index.css",
+	"style": "file:./style-index.css"
+}
