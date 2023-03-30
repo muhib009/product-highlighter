@@ -23,6 +23,10 @@
 			"type": "string",
 			"default": "5"
 		},
+		"counterText": {
+			"type": "string",
+			"default": "1"
+		},
 		"phLogo": {
 			"type": "object"
 		},
@@ -65,6 +69,14 @@
 		"relatedLinkText": {
 			"type": "string",
 			"default": "To the test report"
+		},
+		"buttonUrl": {
+			"type": "string",
+			"default": "#"
+		},
+		"relativeLinkUrl": {
+			"type": "string",
+			"default": "#"
 		}
 	},
 	"textdomain": "product-block",

@@ -16,6 +16,8 @@ export default function save({ attributes }) {
 		payActiveDetails,
 		goLinkText,
 		relatedLinkText,
+		relativeLinkUrl,
+		buttonUrl,
 	} = attributes;
 	return (
 		<div {...useBlockProps.save()}>
@@ -61,17 +63,14 @@ export default function save({ attributes }) {
 					<RichText.Content value={payActiveDetails} />
 				</div>
 				<div className="ph_golink_section">
-					<a
-						href="/zu/vulkanvegas-main"
-						className="act1"
-						target="_blank"
-						rel="nofollow"
-					>
-						<RichText.Content value={goLinkText} />
+					<a href={buttonUrl}>
+						<button className="act1" target="_blank" rel="nofollow">
+							<RichText.Content value={goLinkText} />
+						</button>
 					</a>
 				</div>
 				<div className="ph_relativelink_section">
-					<a href="http://facebook.com">
+					<a href={relativeLinkUrl}>
 						<RichText.Content value={relatedLinkText} />
 					</a>
 				</div>

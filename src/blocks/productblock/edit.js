@@ -9,10 +9,10 @@ import {
 } from '@wordpress/block-editor';
 import {
 	PanelBody,
-	ColorPalette,
 	ToolbarGroup,
 	ToolbarButton,
 	Button,
+	TextControl,
 } from '@wordpress/components';
 const { Fragment } = wp.element;
 
@@ -26,6 +26,7 @@ export default function Edit({ attributes, setAttributes }) {
 	const {
 		ratingScore,
 		ratingOn,
+		counterText,
 		phLogo,
 		bonusText,
 		highlightText,
@@ -36,6 +37,8 @@ export default function Edit({ attributes, setAttributes }) {
 		payActive,
 		payActiveDetails,
 		goLinkText,
+		buttonUrl,
+		relativeLinkUrl,
 		relatedLinkText,
 	} = attributes;
 	return (
@@ -67,9 +70,43 @@ export default function Edit({ attributes, setAttributes }) {
 					title={__('Settings', 'product-block')}
 					initialOpen={true}
 				>
-					<p className="custom__editor__label">
-						{__('Text Color', 'product-block')}
+					<p className="ph_editor_label">
+						{__('Counter Text', 'product-block')}
 					</p>
+					<TextControl
+						label="Write a Number"
+						value={counterText}
+						onChange={(value) =>
+							setAttributes({
+								counterText: value,
+							})
+						}
+					/>
+					<p className="ph_editor_label">
+						{__('Button URL', 'product-block')}
+					</p>
+					<TextControl
+						label="Write Link Here"
+						value={buttonUrl}
+						onChange={(value) =>
+							setAttributes({
+								buttonUrl: value,
+							})
+						}
+					/>
+
+					<p className="ph_editor_label">
+						{__('Relative Link URL', 'product-block')}
+					</p>
+					<TextControl
+						label="Write Link Here"
+						value={relativeLinkUrl}
+						onChange={(value) =>
+							setAttributes({
+								relativeLinkUrl: value,
+							})
+						}
+					/>
 				</PanelBody>
 			</InspectorControls>
 
@@ -117,6 +154,7 @@ export default function Edit({ attributes, setAttributes }) {
 						/
 						<RichText
 							value={ratingOn}
+							className="rating_on"
 							onChange={(score) =>
 								setAttributes({ ratingOn: score })
 							}
@@ -135,6 +173,7 @@ export default function Edit({ attributes, setAttributes }) {
 					<div className="ph_highlight_section">
 						<RichText
 							value={highlightText}
+							className="highlight-text"
 							onChange={(highlight) =>
 								setAttributes({ highlightText: highlight })
 							}
@@ -199,12 +238,7 @@ export default function Edit({ attributes, setAttributes }) {
 						/>
 					</div>
 					<div className="ph_golink_section">
-						<a
-							href="/zu/vulkanvegas-main"
-							className="act1"
-							target="_blank"
-							rel="nofollow"
-						>
+						<button className="act1" target="_blank" rel="nofollow">
 							<RichText
 								value={goLinkText}
 								onChange={(golink) =>
@@ -213,10 +247,10 @@ export default function Edit({ attributes, setAttributes }) {
 									})
 								}
 							/>
-						</a>
+						</button>
 					</div>
 					<div className="ph_relativelink_section">
-						<a href="http://facebook.com">
+						<span href="http://facebook.com">
 							<RichText
 								value={relatedLinkText}
 								onChange={(relatedlink) =>
@@ -225,7 +259,7 @@ export default function Edit({ attributes, setAttributes }) {
 									})
 								}
 							/>
-						</a>
+						</span>
 					</div>
 				</div>
 			</div>

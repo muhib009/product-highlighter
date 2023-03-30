@@ -41,6 +41,7 @@ function Edit(_ref) {
   const {
     ratingScore,
     ratingOn,
+    counterText,
     phLogo,
     bonusText,
     highlightText,
@@ -51,6 +52,8 @@ function Edit(_ref) {
     payActive,
     payActiveDetails,
     goLinkText,
+    buttonUrl,
+    relativeLinkUrl,
     relatedLinkText
   } = attributes;
   return (0,_wordpress_element__WEBPACK_IMPORTED_MODULE_0__.createElement)(Fragment, null, phLogo && (0,_wordpress_element__WEBPACK_IMPORTED_MODULE_0__.createElement)(_wordpress_block_editor__WEBPACK_IMPORTED_MODULE_2__.BlockControls, null, (0,_wordpress_element__WEBPACK_IMPORTED_MODULE_0__.createElement)(_wordpress_components__WEBPACK_IMPORTED_MODULE_3__.ToolbarGroup, null, (0,_wordpress_element__WEBPACK_IMPORTED_MODULE_0__.createElement)(_wordpress_block_editor__WEBPACK_IMPORTED_MODULE_2__.MediaUpload, {
@@ -73,8 +76,30 @@ function Edit(_ref) {
     title: (0,_wordpress_i18n__WEBPACK_IMPORTED_MODULE_1__.__)('Settings', 'product-block'),
     initialOpen: true
   }, (0,_wordpress_element__WEBPACK_IMPORTED_MODULE_0__.createElement)("p", {
-    className: "custom__editor__label"
-  }, (0,_wordpress_i18n__WEBPACK_IMPORTED_MODULE_1__.__)('Text Color', 'product-block')))), (0,_wordpress_element__WEBPACK_IMPORTED_MODULE_0__.createElement)("div", (0,_wordpress_block_editor__WEBPACK_IMPORTED_MODULE_2__.useBlockProps)(), (0,_wordpress_element__WEBPACK_IMPORTED_MODULE_0__.createElement)("div", {
+    className: "ph_editor_label"
+  }, (0,_wordpress_i18n__WEBPACK_IMPORTED_MODULE_1__.__)('Counter Text', 'product-block')), (0,_wordpress_element__WEBPACK_IMPORTED_MODULE_0__.createElement)(_wordpress_components__WEBPACK_IMPORTED_MODULE_3__.TextControl, {
+    label: "Write a Number",
+    value: counterText,
+    onChange: value => setAttributes({
+      counterText: value
+    })
+  }), (0,_wordpress_element__WEBPACK_IMPORTED_MODULE_0__.createElement)("p", {
+    className: "ph_editor_label"
+  }, (0,_wordpress_i18n__WEBPACK_IMPORTED_MODULE_1__.__)('Button URL', 'product-block')), (0,_wordpress_element__WEBPACK_IMPORTED_MODULE_0__.createElement)(_wordpress_components__WEBPACK_IMPORTED_MODULE_3__.TextControl, {
+    label: "Write Link Here",
+    value: buttonUrl,
+    onChange: value => setAttributes({
+      buttonUrl: value
+    })
+  }), (0,_wordpress_element__WEBPACK_IMPORTED_MODULE_0__.createElement)("p", {
+    className: "ph_editor_label"
+  }, (0,_wordpress_i18n__WEBPACK_IMPORTED_MODULE_1__.__)('Relative Link URL', 'product-block')), (0,_wordpress_element__WEBPACK_IMPORTED_MODULE_0__.createElement)(_wordpress_components__WEBPACK_IMPORTED_MODULE_3__.TextControl, {
+    label: "Write Link Here",
+    value: relativeLinkUrl,
+    onChange: value => setAttributes({
+      relativeLinkUrl: value
+    })
+  }))), (0,_wordpress_element__WEBPACK_IMPORTED_MODULE_0__.createElement)("div", (0,_wordpress_block_editor__WEBPACK_IMPORTED_MODULE_2__.useBlockProps)(), (0,_wordpress_element__WEBPACK_IMPORTED_MODULE_0__.createElement)("div", {
     className: "ph_container"
   }, (0,_wordpress_element__WEBPACK_IMPORTED_MODULE_0__.createElement)("div", {
     className: "ph_logo_section"
@@ -107,6 +132,7 @@ function Edit(_ref) {
     })
   })), "/", (0,_wordpress_element__WEBPACK_IMPORTED_MODULE_0__.createElement)(_wordpress_block_editor__WEBPACK_IMPORTED_MODULE_2__.RichText, {
     value: ratingOn,
+    className: "rating_on",
     onChange: score => setAttributes({
       ratingOn: score
     })
@@ -121,6 +147,7 @@ function Edit(_ref) {
     className: "ph_highlight_section"
   }, (0,_wordpress_element__WEBPACK_IMPORTED_MODULE_0__.createElement)(_wordpress_block_editor__WEBPACK_IMPORTED_MODULE_2__.RichText, {
     value: highlightText,
+    className: "highlight-text",
     onChange: highlight => setAttributes({
       highlightText: highlight
     })
@@ -162,8 +189,7 @@ function Edit(_ref) {
     })
   })), (0,_wordpress_element__WEBPACK_IMPORTED_MODULE_0__.createElement)("div", {
     className: "ph_golink_section"
-  }, (0,_wordpress_element__WEBPACK_IMPORTED_MODULE_0__.createElement)("a", {
-    href: "/zu/vulkanvegas-main",
+  }, (0,_wordpress_element__WEBPACK_IMPORTED_MODULE_0__.createElement)("button", {
     className: "act1",
     target: "_blank",
     rel: "nofollow"
@@ -174,7 +200,7 @@ function Edit(_ref) {
     })
   }))), (0,_wordpress_element__WEBPACK_IMPORTED_MODULE_0__.createElement)("div", {
     className: "ph_relativelink_section"
-  }, (0,_wordpress_element__WEBPACK_IMPORTED_MODULE_0__.createElement)("a", {
+  }, (0,_wordpress_element__WEBPACK_IMPORTED_MODULE_0__.createElement)("span", {
     href: "http://facebook.com"
   }, (0,_wordpress_element__WEBPACK_IMPORTED_MODULE_0__.createElement)(_wordpress_block_editor__WEBPACK_IMPORTED_MODULE_2__.RichText, {
     value: relatedLinkText,
@@ -253,7 +279,9 @@ function save(_ref) {
     payActive,
     payActiveDetails,
     goLinkText,
-    relatedLinkText
+    relatedLinkText,
+    relativeLinkUrl,
+    buttonUrl
   } = attributes;
   return (0,_wordpress_element__WEBPACK_IMPORTED_MODULE_0__.createElement)("div", _wordpress_block_editor__WEBPACK_IMPORTED_MODULE_1__.useBlockProps.save(), (0,_wordpress_element__WEBPACK_IMPORTED_MODULE_0__.createElement)("div", {
     className: "ph_container"
@@ -297,16 +325,17 @@ function save(_ref) {
   })), (0,_wordpress_element__WEBPACK_IMPORTED_MODULE_0__.createElement)("div", {
     className: "ph_golink_section"
   }, (0,_wordpress_element__WEBPACK_IMPORTED_MODULE_0__.createElement)("a", {
-    href: "/zu/vulkanvegas-main",
+    href: buttonUrl
+  }, (0,_wordpress_element__WEBPACK_IMPORTED_MODULE_0__.createElement)("button", {
     className: "act1",
     target: "_blank",
     rel: "nofollow"
   }, (0,_wordpress_element__WEBPACK_IMPORTED_MODULE_0__.createElement)(_wordpress_block_editor__WEBPACK_IMPORTED_MODULE_1__.RichText.Content, {
     value: goLinkText
-  }))), (0,_wordpress_element__WEBPACK_IMPORTED_MODULE_0__.createElement)("div", {
+  })))), (0,_wordpress_element__WEBPACK_IMPORTED_MODULE_0__.createElement)("div", {
     className: "ph_relativelink_section"
   }, (0,_wordpress_element__WEBPACK_IMPORTED_MODULE_0__.createElement)("a", {
-    href: "http://facebook.com"
+    href: relativeLinkUrl
   }, (0,_wordpress_element__WEBPACK_IMPORTED_MODULE_0__.createElement)(_wordpress_block_editor__WEBPACK_IMPORTED_MODULE_1__.RichText.Content, {
     value: relatedLinkText
   })))));
@@ -427,7 +456,7 @@ module.exports = window["wp"]["i18n"];
   \********************************************/
 /***/ (function(module) {
 
-module.exports = JSON.parse('{"apiVersion":2,"name":"ph/product-block","version":"0.1.0","title":"Product Block","category":"ph","icon":"welcome-view-site","description":"A simple product highlighter block for WordPress Editor.","supports":{"html":false,"anchor":true},"attributes":{"content":{"type":"string","default":"Hello World!"},"ratingScore":{"type":"string","default":"4"},"ratingOn":{"type":"string","default":"5"},"phLogo":{"type":"object"},"bonusText":{"type":"string","default":"€1,000*"},"highlightText":{"type":"string","default":"Top Loyalty Program"},"payRateText":{"type":"string","default":"Auszahlungsquote"},"payRateDetails":{"type":"string","default":"over 97.00%"},"payDurationText":{"type":"string","default":"Auszahlungsquote"},"payDurationDetails":{"type":"string","default":"14 days"},"payActive":{"type":"string","default":"Sonstiges"},"payActiveDetails":{"type":"string","default":"85k+ active players"},"goLinkText":{"type":"string","default":"Play Now"},"relatedLinkText":{"type":"string","default":"To the test report"}},"textdomain":"product-block","editorScript":"file:./index.js","editorStyle":"file:./index.css","style":"file:./style-index.css"}');
+module.exports = JSON.parse('{"apiVersion":2,"name":"ph/product-block","version":"0.1.0","title":"Product Block","category":"ph","icon":"welcome-view-site","description":"A simple product highlighter block for WordPress Editor.","supports":{"html":false,"anchor":true},"attributes":{"content":{"type":"string","default":"Hello World!"},"ratingScore":{"type":"string","default":"4"},"ratingOn":{"type":"string","default":"5"},"counterText":{"type":"string","default":"1"},"phLogo":{"type":"object"},"bonusText":{"type":"string","default":"€1,000*"},"highlightText":{"type":"string","default":"Top Loyalty Program"},"payRateText":{"type":"string","default":"Auszahlungsquote"},"payRateDetails":{"type":"string","default":"over 97.00%"},"payDurationText":{"type":"string","default":"Auszahlungsquote"},"payDurationDetails":{"type":"string","default":"14 days"},"payActive":{"type":"string","default":"Sonstiges"},"payActiveDetails":{"type":"string","default":"85k+ active players"},"goLinkText":{"type":"string","default":"Play Now"},"relatedLinkText":{"type":"string","default":"To the test report"},"buttonUrl":{"type":"string","default":"#"},"relativeLinkUrl":{"type":"string","default":"#"}},"textdomain":"product-block","editorScript":"file:./index.js","editorStyle":"file:./index.css","style":"file:./style-index.css"}');
 
 /***/ })
 

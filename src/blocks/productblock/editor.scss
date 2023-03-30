@@ -91,6 +91,10 @@
 			& strong {
 				color: #fff;
 				font-size: 15px;
+				display: inline-block;
+			}
+			& .rating_on {
+				display: inline;
 			}
 		}
 
@@ -137,6 +141,9 @@
 				vertical-align: middle;
 				margin: 0 10px 0 0;
 			}
+			& .highlight-text {
+				display: inline;
+			}
 		}
 
 		.ph_payrate_section {
@@ -153,7 +160,7 @@
 				font-size: 11px;
 				color: #a6a8a7;
 				font-weight: 400;
-				padding-bottom: 7px;
+				margin-bottom: 2px;
 			}
 		}
 
@@ -172,7 +179,7 @@
 				font-size: 11px;
 				color: #a6a8a7;
 				font-weight: 400;
-				padding-bottom: 7px;
+				margin-bottom: 2px;
 			}
 		}
 
@@ -192,7 +199,7 @@
 				font-size: 11px;
 				color: #a6a8a7;
 				font-weight: 400;
-				padding-bottom: 7px;
+				margin-bottom: 2px;
 			}
 		}
 
@@ -223,9 +230,9 @@
 			grid-row-end: 5;
 			height: 54px;
 			margin-top: 4px;
-			& a {
+			& span {
 				color: #2c8db6;
-				text-decoration: none;
+				cursor: pointer;
 			}
 		}
 
@@ -240,9 +247,11 @@
 			background-position: top right;
 			transition: background-position 0.25s;
 			padding: 10px 50px;
+			border: none;
 			border-radius: 5px;
 			text-decoration: none;
 			color: white;
+			cursor: pointer;
 		}
 	}
 }
@@ -326,6 +335,14 @@
 				left: 0;
 				bottom: 0;
 			}
+			& strong {
+				color: #fff;
+				font-size: 15px;
+				display: inline-block;
+			}
+			& .rating_on {
+				display: inline;
+			}
 		}
 
 		.ph_bonus_section {
@@ -372,6 +389,9 @@
 				vertical-align: middle;
 				margin: 0px 10px 0 0;
 			}
+			& .highlight-text {
+				display: inline;
+			}
 		}
 
 		.ph_payrate_section {
@@ -385,7 +405,7 @@
 			& p {
 				font-size: 11px;
 				color: #a6a8a7;
-				padding-bottom: 4px;
+				margin-bottom: 2px;
 				font-weight: 400;
 			}
 		}
@@ -403,7 +423,7 @@
 			& p {
 				font-size: 11px;
 				color: #a6a8a7;
-				padding-bottom: 4px;
+				margin-bottom: 2px;
 				font-weight: 400;
 			}
 		}
@@ -421,7 +441,7 @@
 			& p {
 				font-size: 11px;
 				color: #a6a8a7;
-				padding-bottom: 4px;
+				margin-bottom: 2px;
 				font-weight: 400;
 			}
 		}
@@ -445,7 +465,9 @@
 				text-align: center;
 				text-decoration: none;
 				text-transform: uppercase;
+				border: none;
 				border-radius: 2px;
+				cursor: pointer;
 			}
 			& a:hover {
 				color: white;
@@ -467,9 +489,9 @@
 			font-size: 13px;
 			line-height: 1.2;
 			text-align: center;
-			a {
-				text-decoration: none;
-				font-family: "Open Sans", sans-serif;
+			span {
+				color: #2c8db6;
+				cursor: pointer;
 			}
 		}
 	}
@@ -545,7 +567,11 @@
 			}
 			& strong {
 				color: #fff;
-				font-size: 13px;
+				font-size: 15px;
+				display: inline-block;
+			}
+			& .rating_on {
+				display: inline;
 			}
 		}
 
@@ -592,6 +618,9 @@
 				vertical-align: middle;
 				margin: 0 10px 0 0;
 			}
+			& .highlight-text {
+				display: inline;
+			}
 		}
 
 		.ph_payrate_section {
@@ -605,7 +634,7 @@
 			& p {
 				font-size: 12px;
 				color: #a6a8a7;
-				padding-bottom: 5px;
+				margin-bottom: 2px;
 				font-weight: 500;
 			}
 		}
@@ -620,7 +649,7 @@
 			& p {
 				font-size: 12px;
 				color: #a6a8a7;
-				padding-bottom: 5px;
+				margin-bottom: 2px;
 				font-weight: 500;
 			}
 		}
@@ -636,7 +665,7 @@
 			& p {
 				font-size: 12px;
 				color: #a6a8a7;
-				padding-bottom: 5px;
+				margin-bottom: 2px;
 				font-weight: 500;
 			}
 		}
@@ -661,6 +690,7 @@
 				line-height: 1;
 				font-weight: 700;
 				text-transform: none;
+				border: none;
 				border-radius: 5px;
 				padding: 17px;
 				color: #fff;
@@ -669,6 +699,7 @@
 				display: block;
 				text-align: center;
 				max-width: 239px;
+				cursor: pointer;
 			}
 			& a:hover {
 				color: white;
@@ -683,10 +714,16 @@
 			font-size: 13px;
 			line-height: 1.2;
 			text-align: center;
-			a {
+			span {
 				color: #2c8db6;
-				text-decoration: none;
+				cursor: pointer;
 			}
 		}
 	}
+}
+
+.ph_editor_label {
+	font-weight: bold;
+	text-transform: uppercase;
+	font-size: 10px;
 }
