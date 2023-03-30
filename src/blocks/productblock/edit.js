@@ -3,8 +3,17 @@ import {
 	useBlockProps,
 	InspectorControls,
 	RichText,
+	MediaUpload,
+	MediaUploadCheck,
+	BlockControls,
 } from '@wordpress/block-editor';
-import { PanelBody, ColorPalette } from '@wordpress/components';
+import {
+	PanelBody,
+	ColorPalette,
+	ToolbarGroup,
+	ToolbarButton,
+	Button,
+} from '@wordpress/components';
 const { Fragment } = wp.element;
 
 // editor style
@@ -14,9 +23,45 @@ import './editor.scss';
 import colors from '../../utilities/colors-palette';
 
 export default function Edit({ attributes, setAttributes }) {
-	const { content, color } = attributes;
+	const {
+		ratingScore,
+		ratingOn,
+		phLogo,
+		bonusText,
+		highlightText,
+		payRateText,
+		payRateDetails,
+		payDurationText,
+		payDurationDetails,
+		payActive,
+		payActiveDetails,
+		goLinkText,
+		relatedLinkText,
+	} = attributes;
 	return (
 		<Fragment>
+			{phLogo && (
+				<BlockControls>
+					<ToolbarGroup>
+						<MediaUpload
+							onSelect={(media) =>
+								setAttributes({
+									phLogo: media,
+								})
+							}
+							allowedTypes={['image']}
+							value={phLogo && phLogo.id}
+							render={({ open }) => (
+								<ToolbarButton
+									onClick={open}
+									label="Edit"
+									icon="edit"
+								/>
+							)}
+						/>
+					</ToolbarGroup>
+				</BlockControls>
+			)}
 			<InspectorControls>
 				<PanelBody
 					title={__('Settings', 'product-block')}
@@ -25,44 +70,133 @@ export default function Edit({ attributes, setAttributes }) {
 					<p className="custom__editor__label">
 						{__('Text Color', 'product-block')}
 					</p>
-					<ColorPalette
-						colors={colors}
-						value={color}
-						onChange={(newColor) =>
-							setAttributes({ color: newColor })
-						}
-					/>
 				</PanelBody>
 			</InspectorControls>
 
 			<div {...useBlockProps()}>
 				<div className="ph_container">
 					<div className="ph_logo_section">
-						<img
-							alt="abc"
-							src="http://gutenberg.local/wp-content/uploads/2023/03/ladbrokes.webp"
-						/>
+						{phLogo ? (
+							<img
+								src={phLogo.url}
+								alt={phLogo.alt ? phLogo.alt : 'image title'}
+							/>
+						) : (
+							<MediaUploadCheck>
+								<MediaUpload
+									onSelect={(media) =>
+										setAttributes({
+											phLogo: media,
+										})
+									}
+									allowedTypes={['image']}
+									value={phLogo && phLogo.id}
+									render={({ open }) => (
+										<Button
+											onClick={open}
+											variant="secondary"
+											icon="upload"
+											className="scb-image-upload-btn"
+										>
+											{__('Add Image', 'flexguten')}
+										</Button>
+									)}
+								/>
+							</MediaUploadCheck>
+						)}
 					</div>
 					<div className="ph_rating_section">
-						<strong>5</strong>/5
+						<strong>
+							<RichText
+								value={ratingScore}
+								onChange={(score) =>
+									setAttributes({ ratingScore: score })
+								}
+							/>
+						</strong>
+						/
+						<RichText
+							value={ratingOn}
+							onChange={(score) =>
+								setAttributes({ ratingOn: score })
+							}
+						/>
 					</div>
 					<div className="ph_bonus_section">
-						<strong>€1,000*</strong>
+						<strong>
+							<RichText
+								value={bonusText}
+								onChange={(bonus) =>
+									setAttributes({ bonusText: bonus })
+								}
+							/>
+						</strong>
 					</div>
 					<div className="ph_highlight_section">
-						Top Loyalty Program
+						<RichText
+							value={highlightText}
+							onChange={(highlight) =>
+								setAttributes({ highlightText: highlight })
+							}
+						/>
 					</div>
 					<div className="ph_payrate_section">
-						<p>Auszahlungsquote</p>
-						over 97.00%
+						<p>
+							<RichText
+								value={payRateText}
+								onChange={(payrate) =>
+									setAttributes({ payRateText: payrate })
+								}
+							/>
+						</p>
+						<RichText
+							value={payRateDetails}
+							onChange={(payratedetails) =>
+								setAttributes({
+									payRateDetails: payratedetails,
+								})
+							}
+						/>
 					</div>
 					<div className="ph_payduration_section">
-						<p>Auszahlungsquote</p>
-						14 days
+						<p>
+							<RichText
+								value={payDurationText}
+								onChange={(payduration) =>
+									setAttributes({
+										payDurationText: payduration,
+									})
+								}
+							/>
+						</p>
+						<RichText
+							value={payDurationDetails}
+							onChange={(paydurationdetails) =>
+								setAttributes({
+									payDurationDetails: paydurationdetails,
+								})
+							}
+						/>
 					</div>
 					<div className="ph_activeplayers_section">
-						<p>Sonstiges</p>
-						85k+ active players
+						<p>
+							<RichText
+								value={payActive}
+								onChange={(pactive) =>
+									setAttributes({
+										payActive: pactive,
+									})
+								}
+							/>
+						</p>
+						<RichText
+							value={payActiveDetails}
+							onChange={(pactivedetails) =>
+								setAttributes({
+									payActiveDetails: pactivedetails,
+								})
+							}
+						/>
 					</div>
 					<div className="ph_golink_section">
 						<a
@@ -71,21 +205,29 @@ export default function Edit({ attributes, setAttributes }) {
 							target="_blank"
 							rel="nofollow"
 						>
-							Play Now
+							<RichText
+								value={goLinkText}
+								onChange={(golink) =>
+									setAttributes({
+										goLinkText: golink,
+									})
+								}
+							/>
 						</a>
 					</div>
 					<div className="ph_relativelink_section">
-						<a href="http://facebook.com">To the test report</a>
+						<a href="http://facebook.com">
+							<RichText
+								value={relatedLinkText}
+								onChange={(relatedlink) =>
+									setAttributes({
+										relatedLinkText: relatedlink,
+									})
+								}
+							/>
+						</a>
 					</div>
 				</div>
-				<RichText
-					tagName="h4"
-					value={content}
-					onChange={(newContent) =>
-						setAttributes({ content: newContent })
-					}
-					style={{ color }}
-				/>
 			</div>
 		</Fragment>
 	);

@@ -15,9 +15,56 @@
       "type": "string",
       "default": "Hello World!"
     },
-    "color": {
+    "ratingScore": {
       "type": "string",
-      "default": "#00ff00"
+      "default": "4"
+    },
+    "ratingOn": {
+      "type": "string",
+      "default": "5"
+    },
+    "phLogo": {
+      "type": "object"
+    },
+    "bonusText": {
+      "type": "string",
+      "default": "€1,000*"
+    },
+    "highlightText": {
+      "type": "string",
+      "default": "Top Loyalty Program"
+    },
+    "payRateText": {
+      "type": "string",
+      "default": "Auszahlungsquote"
+    },
+    "payRateDetails": {
+      "type": "string",
+      "default": "over 97.00%"
+    },
+    "payDurationText": {
+      "type": "string",
+      "default": "Auszahlungsquote"
+    },
+    "payDurationDetails": {
+      "type": "string",
+      "default": "14 days"
+    },
+    "payActive": {
+      "type": "string",
+      "default": "Sonstiges"
+    },
+    "payActiveDetails": {
+      "type": "string",
+      "default": "85k+ active players"
+    },
+    "goLinkText": {
+      "type": "string",
+      "default": "Play Now"
+    },
+    "relatedLinkText": {
+      "type": "string",
+      "default": "To the test report"
     }
   },
   "textdomain": "product-block",

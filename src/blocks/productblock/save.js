@@ -2,34 +2,63 @@
 import { useBlockProps, RichText } from '@wordpress/block-editor';
 
 export default function save({ attributes }) {
-	const { content, color } = attributes;
+	const {
+		ratingScore,
+		ratingOn,
+		phLogo,
+		bonusText,
+		highlightText,
+		payRateText,
+		payRateDetails,
+		payDurationText,
+		payDurationDetails,
+		payActive,
+		payActiveDetails,
+		goLinkText,
+		relatedLinkText,
+	} = attributes;
 	return (
 		<div {...useBlockProps.save()}>
 			<div className="ph_container">
 				<div className="ph_logo_section">
-					<img
-						alt="abc"
-						src="http://gutenberg.local/wp-content/uploads/2023/03/ladbrokes.webp"
-					/>
+					{phLogo && (
+						<img
+							src={phLogo.url}
+							alt={phLogo.alt ? phLogo.alt : 'image title'}
+						/>
+					)}
 				</div>
 				<div className="ph_rating_section">
-					<strong>5</strong>/5
+					<strong>
+						<RichText.Content value={ratingScore} />
+					</strong>
+					/<RichText.Content value={ratingOn} />
 				</div>
 				<div className="ph_bonus_section">
-					<strong>€1,000*</strong>
+					<strong>
+						<RichText.Content value={bonusText} />
+					</strong>
 				</div>
-				<div className="ph_highlight_section">Top Loyalty Program</div>
+				<div className="ph_highlight_section">
+					<RichText.Content value={highlightText} />
+				</div>
 				<div className="ph_payrate_section">
-					<p>Auszahlungsquote</p>
-					over 97.00%
+					<p>
+						<RichText.Content value={payRateText} />
+					</p>
+					<RichText.Content value={payRateDetails} />
 				</div>
 				<div className="ph_payduration_section">
-					<p>Auszahlungsquote</p>
-					14 days
+					<p>
+						<RichText.Content value={payDurationText} />
+					</p>
+					<RichText.Content value={payDurationDetails} />
 				</div>
 				<div className="ph_activeplayers_section">
-					<p>Sonstiges</p>
-					85k+ active players
+					<p>
+						<RichText.Content value={payActive} />
+					</p>
+					<RichText.Content value={payActiveDetails} />
 				</div>
 				<div className="ph_golink_section">
 					<a
@@ -38,11 +67,13 @@ export default function save({ attributes }) {
 						target="_blank"
 						rel="nofollow"
 					>
-						Play Now
+						<RichText.Content value={goLinkText} />
 					</a>
 				</div>
 				<div className="ph_relativelink_section">
-					<a href="http://facebook.com">To the test report</a>
+					<a href="http://facebook.com">
+						<RichText.Content value={relatedLinkText} />
+					</a>
 				</div>
 			</div>
 		</div>
